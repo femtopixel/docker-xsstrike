@@ -12,7 +12,7 @@ build:
 		docker build -t femtopixel/xsstrike:${VERSION}-$(arch) --build-arg VERSION=${VERSION} --build-arg VERSION_LABEL=${VERSION}-$(arch) -f .Dockerfile ${CACHE} .;\
 	)
 publish:
-	docker push femtopixel/xsstrike
+	docker push femtopixel/xsstrike -a
 	cat manifest.yml | sed "s/\$$VERSION/${VERSION}/g" > manifest.yaml
 	cat manifest.yaml | sed "s/\$$FULLVERSION/${FULLVERSION}/g" > manifest2.yaml
 	mv manifest2.yaml manifest.yaml
