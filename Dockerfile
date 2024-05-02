@@ -1,13 +1,9 @@
-FROM python:alpine as builder
-
-COPY qemu-*-static /usr/bin/
-
-FROM builder
+FROM python:alpine
 
 ARG VERSION=3.1.5
-ARG VERSION_LABEL=3.1.4
-LABEL maintainer="Jay MOULIN <jaymoulin@gmail.com> <https://twitter.com/MoulinJay>"
-LABEL version=${VERSION_LABEL}
+ARG TARGETPLATFORM
+LABEL maintainer="Jay MOULIN <jaymoulin@gmail.com>"
+LABEL version=${VERSION}-${TARGETPLATFORM}
 #Use alpine to save disk space
 RUN apk add --no-cache git bash &&\
     git clone https://github.com/s0md3v/XSStrike.git &&\
