@@ -1,6 +1,6 @@
 FROM python:alpine
 
-ARG VERSION=3.1.5
+ARG VERSION=3.1.6
 ARG TARGETPLATFORM
 LABEL maintainer="Jay MOULIN <jaymoulin@gmail.com>"
 LABEL version=${VERSION}-${TARGETPLATFORM}
